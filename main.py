@@ -361,8 +361,8 @@ def read_root():
     return "Welcome to library"
 
 @app.get("/books")
-def get_all_books() -> list:
-    return books
+def get_all_books(limit: int = 10, offset: int = 0) -> list:
+    return books[offset:limit]
 
 @app.get("/books/{book_id}")
 def get_book(book_id: int) -> dict | bool:
