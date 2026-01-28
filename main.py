@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+import random
 
 from books import books
 
@@ -13,6 +14,11 @@ def read_root():
 def get_all_books(limit: int = 10, offset: int = 0) -> list:
     return books[offset:limit]
 
+@app.get("/books/random")
+def get_random_book() -> dict:
+    random_number = random.randint(0, len(books) - 1)
+    return books[random_number]
+
 @app.get("/books/{book_id}")
 def get_book(book_id: int) -> dict | bool:
     book = next((item for item in books if item["isbn"] == book_id), False)
@@ -21,3 +27,4 @@ def get_book(book_id: int) -> dict | bool:
         raise HTTPException(status_code=404, detail=f"Book with ISBN {book_id} not found.")
     
     return book
+    
