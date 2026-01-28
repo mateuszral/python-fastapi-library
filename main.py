@@ -12,7 +12,7 @@ def read_root():
 
 @app.get("/books")
 def get_all_books(limit: int = 10, offset: int = 0) -> list:
-    return books[offset:limit]
+    return books[offset : offset + limit]
 
 @app.get("/books/random")
 def get_random_book() -> dict:
