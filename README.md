@@ -2,7 +2,7 @@
 
 - all books (list of dictionaries) ✅
 - book by index (isbn) ✅
-- book by name
+- books by name/author
 - get random book
 - add book
 - update book
