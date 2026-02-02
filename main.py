@@ -45,11 +45,10 @@ def get_all_books(limit: int = 10, offset: int = 0) -> list[Book]:
 
 @app.get("/books/random")
 def get_random_book() -> Book:
-    random_number = random.randint(0, len(books) - 1)
-    return books[random_number]
+    return random.choice(books)
 
 @app.get("/books/search")
-def search_books(search_phrase: str) -> list[Book]:
+def get_book(search_phrase: str) -> list[Book]:
     return [result for result in books if search_phrase.lower() in result["title"].lower() or search_phrase.lower() in result["author"].lower()]
     
 @app.get("/books/{book_id}")
@@ -62,7 +61,7 @@ def get_book(book_id: int) -> Book | bool:
     return book
 
 @app.post("/books")
-def create_book(book: Book) -> Book | bool:
+def add_book(book: Book) -> Book | bool:
     if not book.title or not book.author:
         raise HTTPException(status_code=400, detail="Title/author cannot be empty")
     
