@@ -1,9 +1,19 @@
-from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
+import json
 import random
+from fastapi import FastAPI, HTTPException
+from fastapi.encoders import jsonable_encoder
+from pydantic import BaseModel
 
-from books import books
 from utils import is_isbn_valid, is_date_valid
+
+BOOKS_PATH = "./books.json"
+
+try:
+    with open(BOOKS_PATH, "r") as f:
+        books = json.load(f)
+        f.close()
+except FileNotFoundError:
+    books = []
 
 app = FastAPI()
 
@@ -39,8 +49,8 @@ def get_book(book_id: int) -> Book | bool:
     
     return book
 
-@app.post("/books")
-def add_book(book: Book) -> Book | bool:
+@app.post("/books", status_code=201)
+def add_book(book: Book) -> dict:
     if not book.title or not book.author:
         raise HTTPException(status_code=400, detail="Title/author cannot be empty")
     
@@ -57,5 +67,12 @@ def add_book(book: Book) -> Book | bool:
     if not is_date_valid(book.release_date):
         raise HTTPException(status_code=400, detail=f"Release date ({book.release_date}) is not in valid format (YYYY-MM-DD)")
         
-    books.append(book)
-    return book
+    
+    json_book = jsonable_encoder(book)
+    books.append(json_book)
+        
+    with open(BOOKS_PATH, "w") as f:
+        json.dump(books, f, indent=4)
+        f.close()
+        
+    return {"message": "Book was added successfully"}

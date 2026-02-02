@@ -1,4 +1,4 @@
-books = [
+[
     {
         "isbn": 9780743273565,
         "title": "The Great Gatsby",
@@ -114,7 +114,7 @@ books = [
     {
         "isbn": 9780679783268,
         "title": "Jane Eyre",
-        "author": "Charlotte Brontë",
+        "author": "Charlotte Bront\u00eb",
         "pages": 532,
         "release_date": "1847-10-16"
     },
