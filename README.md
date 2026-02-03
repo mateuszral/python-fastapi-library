@@ -5,9 +5,9 @@
 - books by name/author ✅
 - get random book ✅
 - add book ✅
-- accept isbn10 ✅
-- strip isbn13 (only digits) ✅
+- accept isbn10/isbn13 ✅
 - update book
-- delete book
+- delete book ✅
+- delete book with isbn (get with "-", in db without etc.)
 - get all books - sort by title, author, pages, release date - asc/desc
 - store books in json file ✅

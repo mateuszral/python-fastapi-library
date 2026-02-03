@@ -60,7 +60,6 @@ def add_book(book: Book) -> dict:
     if not is_isbn_valid(book.isbn):
         raise HTTPException(400, f"ISBN {book.isbn} is invalid")
     
-    
     if any(item for item in books if item["isbn"] == book.isbn):
         raise HTTPException(400, f"Book with ISBN {book.isbn} already exists.")
     
@@ -76,3 +75,19 @@ def add_book(book: Book) -> dict:
         f.close()
         
     return {"isbn": book.isbn, "message": "Book was added successfully"}
+
+@app.delete("/books/{book_id}")
+def delete_book(book_id: str):
+    book_id = book_id.replace("-", "").replace(" ", "")
+    book_to_delete = next((item for item in books if item["isbn"] == book_id), False)
+    
+    if not book_to_delete:
+        raise HTTPException(404, f"Book with ISBN {book_id} does not exist")
+    
+    books.remove(book_to_delete)
+    
+    with open(BOOKS_PATH, "w") as f:
+        json.dump(books, f, indent=4)
+        f.close()
+        
+    return {"isbn": book_id, "message": "Book was deleted successfully"}
