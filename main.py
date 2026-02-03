@@ -18,7 +18,7 @@ except FileNotFoundError:
 app = FastAPI()
 
 class Book(BaseModel):
-    isbn: int
+    isbn: str
     title: str
     author: str
     pages: int
@@ -57,7 +57,7 @@ def add_book(book: Book) -> dict:
     if book.pages <= 0:
         raise HTTPException(400, "Number of pages must be greater than zero.")
     
-    if not is_isbn_valid(book.isbn) or book.isbn < 0:
+    if not is_isbn_valid(book.isbn):
         raise HTTPException(400, f"ISBN {book.isbn} is invalid")
     
     

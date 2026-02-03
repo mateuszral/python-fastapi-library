@@ -1,209 +1,209 @@
 [
     {
-        "isbn": 9780743273565,
+        "isbn": "9780743273565",
         "title": "The Great Gatsby",
         "author": "F. Scott Fitzgerald",
         "pages": 180,
         "release_date": "1925-04-10"
     },
     {
-        "isbn": 9780451524935,
+        "isbn": "9780451524935",
         "title": "1984",
         "author": "George Orwell",
         "pages": 328,
         "release_date": "1949-06-08"
     },
     {
-        "isbn": 9780061120084,
+        "isbn": "9780061120084",
         "title": "To Kill a Mockingbird",
         "author": "Harper Lee",
         "pages": 336,
         "release_date": "1960-07-11"
     },
     {
-        "isbn": 9780316769488,
+        "isbn": "9780316769488",
         "title": "The Catcher in the Rye",
         "author": "J.D. Salinger",
         "pages": 277,
         "release_date": "1951-07-16"
     },
     {
-        "isbn": 9780141439600,
+        "isbn": "9780141439600",
         "title": "Pride and Prejudice",
         "author": "Jane Austen",
         "pages": 279,
         "release_date": "1813-01-28"
     },
     {
-        "isbn": 9780140449266,
+        "isbn": "9780140449266",
         "title": "The Odyssey",
         "author": "Homer",
         "pages": 560,
         "release_date": "0800-01-01"
     },
     {
-        "isbn": 9780140283334,
+        "isbn": "9780140283334",
         "title": "Lord of the Flies",
         "author": "William Golding",
         "pages": 224,
         "release_date": "1954-09-17"
     },
     {
-        "isbn": 9780060850524,
+        "isbn": "9780060850524",
         "title": "Brave New World",
         "author": "Aldous Huxley",
         "pages": 288,
         "release_date": "1932-08-31"
     },
     {
-        "isbn": 9780140449181,
+        "isbn": "9780140449181",
         "title": "The Iliad",
         "author": "Homer",
         "pages": 704,
         "release_date": "0750-01-01"
     },
     {
-        "isbn": 9780307277671,
+        "isbn": "9780307277671",
         "title": "The Road",
         "author": "Cormac McCarthy",
         "pages": 287,
         "release_date": "2006-09-26"
     },
     {
-        "isbn": 9780747532743,
+        "isbn": "9780747532743",
         "title": "Harry Potter and the Philosopher's Stone",
         "author": "J.K. Rowling",
         "pages": 223,
         "release_date": "1997-06-26"
     },
     {
-        "isbn": 9780618640157,
+        "isbn": "9780618640157",
         "title": "The Hobbit",
         "author": "J.R.R. Tolkien",
         "pages": 310,
         "release_date": "1937-09-21"
     },
     {
-        "isbn": 9780618260300,
+        "isbn": "9780618260300",
         "title": "The Fellowship of the Ring",
         "author": "J.R.R. Tolkien",
         "pages": 423,
         "release_date": "1954-07-29"
     },
     {
-        "isbn": 9780385472579,
+        "isbn": "9780385472579",
         "title": "Zen and the Art of Motorcycle Maintenance",
         "author": "Robert M. Pirsig",
         "pages": 540,
         "release_date": "1974-04-01"
     },
     {
-        "isbn": 9780140449136,
+        "isbn": "9780140449136",
         "title": "Crime and Punishment",
         "author": "Fyodor Dostoevsky",
         "pages": 671,
         "release_date": "1866-01-01"
     },
     {
-        "isbn": 9780143105985,
+        "isbn": "9780143105985",
         "title": "Moby-Dick",
         "author": "Herman Melville",
         "pages": 720,
         "release_date": "1851-10-18"
     },
     {
-        "isbn": 9780679783268,
+        "isbn": "9780679783268",
         "title": "Jane Eyre",
         "author": "Charlotte Bront\u00eb",
         "pages": 532,
         "release_date": "1847-10-16"
     },
     {
-        "isbn": 9780307949486,
+        "isbn": "9780307949486",
         "title": "The Alchemist",
         "author": "Paulo Coelho",
         "pages": 208,
         "release_date": "1988-01-01"
     },
     {
-        "isbn": 9780385754729,
+        "isbn": "9780385754729",
         "title": "The Book Thief",
         "author": "Markus Zusak",
         "pages": 552,
         "release_date": "2005-03-14"
     },
     {
-        "isbn": 9780439023528,
+        "isbn": "9780439023528",
         "title": "The Hunger Games",
         "author": "Suzanne Collins",
         "pages": 374,
         "release_date": "2008-09-14"
     },
     {
-        "isbn": 9780062316110,
+        "isbn": "9780062316110",
         "title": "The Giver",
         "author": "Lois Lowry",
         "pages": 240,
         "release_date": "1993-04-26"
     },
     {
-        "isbn": 9780553380163,
+        "isbn": "9780553380163",
         "title": "Dune",
         "author": "Frank Herbert",
         "pages": 688,
         "release_date": "1965-08-01"
     },
     {
-        "isbn": 9780307474278,
+        "isbn": "9780307474278",
         "title": "The Girl with the Dragon Tattoo",
         "author": "Stieg Larsson",
         "pages": 672,
         "release_date": "2005-08-01"
     },
     {
-        "isbn": 9780062024039,
+        "isbn": "9780062024039",
         "title": "Gone Girl",
         "author": "Gillian Flynn",
         "pages": 432,
         "release_date": "2012-06-05"
     },
     {
-        "isbn": 9780307592736,
+        "isbn": "9780307592736",
         "title": "Life of Pi",
         "author": "Yann Martel",
         "pages": 331,
         "release_date": "2001-09-11"
     },
     {
-        "isbn": 9780143127741,
+        "isbn": "9780143127741",
         "title": "Sapiens",
         "author": "Yuval Noah Harari",
         "pages": 464,
         "release_date": "2011-01-01"
     },
     {
-        "isbn": 9780385486804,
+        "isbn": "9780385486804",
         "title": "Into the Wild",
         "author": "Jon Krakauer",
         "pages": 224,
         "release_date": "1996-01-13"
     },
     {
-        "isbn": 9780062316097,
+        "isbn": "9780062316097",
         "title": "Fahrenheit 451",
         "author": "Ray Bradbury",
         "pages": 194,
         "release_date": "1953-10-19"
     },
     {
-        "isbn": 9780141182803,
+        "isbn": "9780141182803",
         "title": "The Stranger",
         "author": "Albert Camus",
         "pages": 123,
         "release_date": "1942-01-01"
     },
     {
-        "isbn": 9780060838676,
+        "isbn": "9780060838676",
         "title": "The Handmaid's Tale",
         "author": "Margaret Atwood",
         "pages": 311,
