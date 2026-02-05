@@ -12,7 +12,7 @@ def is_date_valid(date: str) -> bool:
     return is_date_correct
 
 def is_isbn_valid(isbn: str) -> bool:
-    isbn = isbn.replace("-", "").replace(" ", "").upper()
+    isbn = isbn.upper()
     
     if len(isbn) == 10:
         match = re.search(r'^(\d{9})(\d|X)$', isbn)

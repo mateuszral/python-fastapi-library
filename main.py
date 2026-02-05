@@ -50,12 +50,14 @@ def get_book(book_id: int) -> Book | bool:
     return book
 
 @app.post("/books", status_code=201)
-def add_book(book: Book) -> dict:
+def add_book(book: Book):
     if not book.title or not book.author:
         raise HTTPException(400, "Title/author cannot be empty")
     
     if book.pages <= 0:
         raise HTTPException(400, "Number of pages must be greater than zero.")
+    
+    book.isbn = book.isbn.replace("-", "").replace(" ", "")
     
     if not is_isbn_valid(book.isbn):
         raise HTTPException(400, f"ISBN {book.isbn} is invalid")
@@ -65,7 +67,6 @@ def add_book(book: Book) -> dict:
     
     if not is_date_valid(book.release_date):
         raise HTTPException(400, f"Release date ({book.release_date}) is not in valid format (YYYY-MM-DD)")
-        
     
     json_book = jsonable_encoder(book)
     books.append(json_book)
@@ -79,6 +80,10 @@ def add_book(book: Book) -> dict:
 @app.delete("/books/{book_id}")
 def delete_book(book_id: str):
     book_id = book_id.replace("-", "").replace(" ", "")
+    
+    if not is_isbn_valid(book_id):
+        raise HTTPException(400, f"ISBN {book_id} is invalid")
+    
     book_to_delete = next((item for item in books if item["isbn"] == book_id), False)
     
     if not book_to_delete:

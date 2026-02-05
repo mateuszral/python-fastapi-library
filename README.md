@@ -8,6 +8,5 @@
 - accept isbn10/isbn13 ✅
 - update book
 - delete book ✅
-- delete book with isbn (get with "-", in db without etc.)
 - get all books - sort by title, author, pages, release date - asc/desc
 - store books in json file ✅
