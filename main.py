@@ -1,10 +1,12 @@
 import json
 import random
+from typing import Dict
 from fastapi import FastAPI, HTTPException
 from fastapi.encoders import jsonable_encoder
-from pydantic import BaseModel
 
 from utils import is_isbn_valid, is_date_valid
+from models import Book
+
 
 BOOKS_PATH = "./books.json"
 
@@ -17,19 +19,12 @@ except FileNotFoundError:
 
 app = FastAPI()
 
-class Book(BaseModel):
-    isbn: str
-    title: str
-    author: str
-    pages: int
-    release_date: str
-
 @app.get("/")
 def read_root() -> str:
     return "Welcome to library"
 
 @app.get("/books")
-def get_all_books(limit: int = 10, offset: int = 0) -> list[Book]:
+def get_all_books(limit: int = len(books), offset: int = 0) -> list[Book]:
     return books[offset : offset + limit]
 
 @app.get("/books/random")
@@ -50,7 +45,7 @@ def get_book(book_id: int) -> Book | bool:
     return book
 
 @app.post("/books", status_code=201)
-def add_book(book: Book):
+def add_book(book: Book) -> dict:
     if not book.title or not book.author:
         raise HTTPException(400, "Title/author cannot be empty")
     
@@ -78,7 +73,7 @@ def add_book(book: Book):
     return {"isbn": book.isbn, "message": "Book was added successfully"}
 
 @app.delete("/books/{book_id}")
-def delete_book(book_id: str):
+def delete_book(book_id: str) -> dict:
     book_id = book_id.replace("-", "").replace(" ", "")
     
     if not is_isbn_valid(book_id):
@@ -96,3 +91,26 @@ def delete_book(book_id: str):
         f.close()
         
     return {"isbn": book_id, "message": "Book was deleted successfully"}
+
+@app.put("/books/{book_id}")
+def update_book(book_id: str, kwargs: Dict) -> dict:
+    book_id = book_id.replace("-", "").replace(" ", "")
+    
+    if not is_isbn_valid(book_id):
+        raise HTTPException(400, f"ISBN {book_id} is invalid")
+    
+    book_to_update = next((item for item in books if item["isbn"] == book_id), False)
+    
+    if not book_to_update:
+        raise HTTPException(404, f"Book with ISBN {book_id} does not exist")
+    
+    id = books.index(book_to_update)
+                                
+    books[id].update(kwargs)    
+    
+    with open(BOOKS_PATH, "w") as f:
+        json.dump(books, f, indent=4)
+        f.close()
+    
+    return {"updated_book": books[id], "message": "Book was updated successfully"}
+    

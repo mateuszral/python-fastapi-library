@@ -1,5 +1,7 @@
 import re
+
 from datetime import datetime
+
 
 def is_date_valid(date: str) -> bool:
     is_date_correct = None

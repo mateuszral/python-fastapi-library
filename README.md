@@ -6,7 +6,8 @@
 - get random book ✅
 - add book ✅
 - accept isbn10/isbn13 ✅
-- update book
+- update book ✅
+- add UpdateBook model
 - delete book ✅
 - get all books - sort by title, author, pages, release date - asc/desc
 - store books in json file ✅
