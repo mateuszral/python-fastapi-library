@@ -3,6 +3,9 @@ import re
 from datetime import datetime
 
 
+sorting_fields = ["isbn", "title", "author", "pages", "release_date"]
+sorting_by_fields = ["ASC", "DESC"]
+
 def is_date_valid(date: str) -> bool:
     is_date_correct = None
     try:

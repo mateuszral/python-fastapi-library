@@ -4,7 +4,7 @@ from typing import Dict
 from fastapi import FastAPI, HTTPException
 from fastapi.encoders import jsonable_encoder
 
-from utils import is_isbn_valid, is_date_valid
+from utils import is_isbn_valid, is_date_valid, sorting_fields, sorting_by_fields
 from models import Book
 
 
@@ -24,8 +24,18 @@ def read_root() -> str:
     return "Welcome to library"
 
 @app.get("/books")
-def get_all_books(limit: int = len(books), offset: int = 0) -> list[Book]:
-    return books[offset : offset + limit]
+def get_all_books(limit: int = len(books), offset: int = 0, order_by: str = "title", order_type: str = "ASC") -> list[Book]:
+    order_by = order_by.lower()
+    order_type = order_type.upper()
+    
+    if not order_by in sorting_fields:
+        raise HTTPException(400, f"{order_by} type is invalid")
+    
+    if not order_type in sorting_by_fields:
+        raise HTTPException(400, f"{order_type} type is invalid")
+    
+    sorted_books = sorted(books, key=lambda x: x[order_by], reverse=order_type == "DESC")
+    return sorted_books[offset : offset + limit]
 
 @app.get("/books/random")
 def get_random_book() -> Book:
